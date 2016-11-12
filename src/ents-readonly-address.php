@@ -12,7 +12,8 @@ class Am_Plugin_EntsReadonlyAddress extends Am_Plugin
     // This is a shell plugin to load the form brick below.
 }
 
-class Am_Form_Brick_ReadonlyAddress extends Am_Form_Brick {
+class Am_Form_Brick_ReadonlyAddress extends Am_Form_Brick
+{
 
     protected $labels = array(
         "Street",
@@ -23,7 +24,8 @@ class Am_Form_Brick_ReadonlyAddress extends Am_Form_Brick {
         "Address Information"
     );
 
-    public function __construct($id = null, array $config = null) {
+    public function __construct($id = null, array $config = null)
+    {
         parent::__construct($id, $config);
         $this->name = "Readonly Address Information";
     }
@@ -34,11 +36,11 @@ class Am_Form_Brick_ReadonlyAddress extends Am_Form_Brick {
         $fs = $form->addFieldSet()->setLabel($this->___("Address Information"));
 
         $changeMessage = $this->getConfig("change_message", "");
-        if(strlen(trim($changeMessage)) > 0)
+        if (strlen(trim($changeMessage)) > 0)
             $fs->addHtml("alert_message")->setHtml($changeMessage);
 
         $fs->addText("address_street", array("value" => $user->street, "disabled" => true, "class" => "el-wide"))->setLabel($this->___("Street"));
-        $fs->addText("address_city", array("value" => $user->city, "disabled" => true, "class" => "el-wide"))->setLabel($this-> ___("City"));
+        $fs->addText("address_city", array("value" => $user->city, "disabled" => true, "class" => "el-wide"))->setLabel($this->___("City"));
         $fs->addText("address_country", array("value" => $user->country, "disabled" => true))->setLabel($this->___("Country"));
         $fs->addText("address_province", array("value" => $user->state, "disabled" => true))->setLabel($this->___("Province"));
         $fs->addText("address_postalcode", array("value" => $user->zip, "disabled" => true))->setLabel($this->___("Postal Code"));
